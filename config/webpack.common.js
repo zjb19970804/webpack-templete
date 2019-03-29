@@ -64,7 +64,16 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [
+          'cache-loader',
+          {
+            loader: 'thread-loader',
+            options: {
+              workers: require('os').cpus().length - 1
+            }
+          },
+          'babel-loader'
+        ],
         exclude: /node_modules/
       },
       {
