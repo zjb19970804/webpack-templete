@@ -1,0 +1,6 @@
+div {
+  color: red;
+  background-color: yellowgreen;
+  display: flex;
+  height: 100px;
+}

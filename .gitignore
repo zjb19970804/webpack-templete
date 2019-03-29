@@ -1,0 +1,14 @@
+.DS_Store
+.idea/
+dist/
+node_modules/
+.cache-loader/
+# Logs
+logs
+*.log
+*.map
+
+build
+.eslintcache
+
+npm-debug.log.*
