@@ -1,24 +1,25 @@
-const path = require('path')
+const path = require('path');
 // html插件，自动注入打包后的bundle文件
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // js压缩
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // 每次打包前清空dist目录
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 // 从js中分离css，提取为单独css文件，与js并行加载
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // css压缩
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // 清除没有使用的js代码
-const TerserPlugin = require('terser-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const TerserPlugin = require('terser-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist')
     // 延迟加载的bundle
     // chunkFilename: '[name].bundle.js'
   },
@@ -106,8 +107,8 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: isDev ? "[name].css" : "[name].[contenthash:6].css",
-      chunkFilename: isDev ? "[id].css": "[name].[contenthash:6].css"
+      filename: isDev ? '[name].css' : '[name].[contenthash:6].css',
+      chunkFilename: isDev ? '[id].css' : '[name].[contenthash:6].css'
     }),
     new HtmlWebpackPlugin({
       title: 'webpack4',
@@ -116,4 +117,4 @@ module.exports = {
       }
     })
   ]
-}
+};

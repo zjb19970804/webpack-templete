@@ -1,12 +1,12 @@
-const path = require('path')
-const merge = require('webpack-merge')
-const common = require('./webpack.common')
-const webpack = require('webpack')
+const path = require('path');
+const merge = require('webpack-merge');
+const common = require('./webpack.common');
+const webpack = require('webpack');
 
 module.exports = merge(common, {
   mode: 'development',
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].bundle.js'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -16,7 +16,5 @@ module.exports = merge(common, {
     open: 'http://127.0.0.1:8080'
   },
   watch: true,
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
-})
+  plugins: [new webpack.HotModuleReplacementPlugin()]
+});
